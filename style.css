@@ -10,17 +10,26 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: rgba(200,200,50,0.5);
+  background-color: #FCF9F9;
+  font-family: 'Cabin', sans-serif;
 }
 
 #track {
   width: 98%;
-  height: 700px;
-  background-color: green;
+  height: 80%;
+  background-color: #169e29;
   display: flex;
   justify-content: center;
   align-items: left;
   flex-direction: column;
+}
+
+#finishLine {
+  height: 100%;
+  background-color: #FCF9F9;
+  position: relative;
+  right: 5%;
+  width: 5px;
 }
 
 .dada {
@@ -32,7 +41,7 @@ body {
 }
 
 img {
-  height: 90px;
+  height: 70px;
   position: relative;
 }
 
@@ -41,8 +50,8 @@ img {
 }
 
 input {
-  width: 100px;
-  height: 30px;
+  width: 10vh;
+  height: 3vh;
   border-radius: 3px;
 }
 
@@ -58,6 +67,13 @@ input {
   align-items: center;
   padding: 60px;
   border-radius: 3px;
+  width: 60%;
+  height: 45%;
+  text-align: center;
+}
+
+#popup > * {
+  margin: 0;
 }
 
 ul {
@@ -69,15 +85,22 @@ li {
   display: inline-block;
   flex-direction: column;
   list-style: none;
+  margin-top: 10px !important;
 }
 
-#btn {
+li img {
+  height: 6vh;
+}
+
+.btn-style {
   border: 1px solid #000;
   padding: 10px 25px;
   border-radius: 3px;
+  text-align: center;
+  margin-top: 10px !important;
 }
 
-#btn:hover {
+.btn-style:hover {
   color: rgba(255,255,255,0.9);
   background-color: rgba(0,0,0,0.9);
   cursor: pointer;
@@ -91,6 +114,9 @@ li {
 
 #account {
   position: absolute;
-  top: 10px;
-  color: #fff;
+  top: 0px;
+}
+
+#capy {
+  height: 150px;
 }

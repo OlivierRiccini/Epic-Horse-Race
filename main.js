@@ -5,12 +5,12 @@ const horse4 = document.getElementById('4');
 const horse5 = document.getElementById('5');
 const horse6 = document.getElementById('6');
 
-const finish1 = document.getElementById('dada1');
-const finish2 = document.getElementById('dada2');
-const finish3 = document.getElementById('dada3');
-const finish4 = document.getElementById('dada4');
-const finish5 = document.getElementById('dada5');
-const finish6 = document.getElementById('dada6');
+const finish1 = document.getElementById('dada1Final');
+const finish2 = document.getElementById('dada2Final');
+const finish3 = document.getElementById('dada3Final');
+const finish4 = document.getElementById('dada4Final');
+const finish5 = document.getElementById('dada5Final');
+const finish6 = document.getElementById('dada6Final');
 
 const bet1 = document.getElementById('bet1');
 const bet2 = document.getElementById('bet2');
@@ -19,10 +19,14 @@ const bet4 = document.getElementById('bet4');
 const bet5 = document.getElementById('bet5');
 const bet6 = document.getElementById('bet6');
 
+const track = document.getElementById('track');
 const buttonGo = document.getElementById('btn');
+const btnReload = document.getElementById('btn-reload');
 const popup = document.getElementById('popup');
 const clock = document.getElementById('clock');
 const yourAccount = document.getElementById('account');
+const finalPositions = document.querySelectorAll('.final');
+const betList = document.getElementById('betList');
 
 let position = 0;
 let position2 = 0;
@@ -41,14 +45,16 @@ function finish() {
 }
 
 function move() {
-  let pace = Math.floor(Math.random()*10);
+  let pace = Math.floor(Math.random() * 10);
   if (position > window.innerWidth - 120) {
     clearInterval(interval);
     let lastPosition = finish();
-    finish1.insertAdjacentHTML('afterbegin', `<h1 class="final">Final ${lastPosition}</h1>`);
+    finish1.innerText = `Final ${lastPosition}`;
     if (lastPosition === 1) {
-      account += Number(bet1.value) * 6;
-      yourAccount.innerText = `Your Account: $${account}`;
+      account += Number(bet1.value) * 5;
+      yourAccount.innerText = `Balance: $${account}`;
+    } else if (lastPosition === 6) {
+      endPopu();
     }
   }
   position += pace;
@@ -56,14 +62,16 @@ function move() {
 }
 
 function move2() {
-  let pace = Math.floor(Math.random()*10);
+  let pace = Math.floor(Math.random() * 10);
   if (position2 > window.innerWidth - 120) {
     clearInterval(interval2);
     let lastPosition = finish();
-    finish2.insertAdjacentHTML('afterbegin', `<h1 class="final">Final ${lastPosition}</h1>`);
+    finish2.innerText = `Final ${lastPosition}`;
     if (lastPosition === 1) {
-      account += Number(bet2.value) * 6;
-      yourAccount.innerText = `Your Account: $${account}`;
+      account += Number(bet2.value) * 5;
+      yourAccount.innerText = `Balance: $${account}`;
+    } else if (lastPosition === 6) {
+      endPopu();
     }
   }
   position2 += pace;
@@ -71,14 +79,16 @@ function move2() {
 }
 
 function move3() {
-  let pace = Math.floor(Math.random()*10);
+  let pace = Math.floor(Math.random() * 10);
   if (position3 > window.innerWidth - 120) {
     clearInterval(interval3);
     let lastPosition = finish();
-    finish3.insertAdjacentHTML('afterbegin', `<h1 class="final">Final ${lastPosition}</h1>`);
+    finish3.innerText = `Final ${lastPosition}`;
     if (lastPosition === 1) {
-      account += Number(bet3.value) * 6;
-      yourAccount.innerText = `Your Account: $${account}`;
+      account += Number(bet3.value) * 5;
+      yourAccount.innerText = `Balance: $${account}`;
+    } else if (lastPosition === 6) {
+      endPopu();
     }
   }
   position3 += pace;
@@ -86,14 +96,16 @@ function move3() {
 }
 
 function move4() {
-  let pace = Math.floor(Math.random()*10);
+  let pace = Math.floor(Math.random() * 10);
   if (position4 > window.innerWidth - 120) {
     clearInterval(interval4);
     let lastPosition = finish();
-    finish4.insertAdjacentHTML('afterbegin', `<h1 class="final">Final ${lastPosition}</h1>`);
+    finish4.innerText = `Final ${lastPosition}`;
     if (lastPosition=== 1) {
-      account += Number(bet4.value) * 6;
-      yourAccount.innerText = `Your Account: $${account}`;
+      account += Number(bet4.value) * 5;
+      yourAccount.innerText = `Balance: $${account}`;
+    } else if (lastPosition === 6) {
+      endPopu();
     }
   }
   position4 += pace;
@@ -101,14 +113,16 @@ function move4() {
 }
 
 function move5() {
-  let pace = Math.floor(Math.random()*10);
+  let pace = Math.floor(Math.random() * 10);
   if (position5 > window.innerWidth - 120) {
     clearInterval(interval5);
-    let lastPosition = finish()
-    finish5.insertAdjacentHTML('afterbegin', `<h1 class="final">Final ${lastPosition}</h1>`);
+    let lastPosition = finish();
+    finish5.innerText = `Final ${lastPosition}`;
     if (lastPosition === 1) {
-      account += Number(bet5.value) * 6;
-      yourAccount.innerText = `Your Account: $${account}`;
+      account += Number(bet5.value) * 5;
+      yourAccount.innerText = `Balance: $${account}`;
+    } else if (lastPosition === 6) {
+      endPopu();
     }
   }
   position5 += pace;
@@ -116,14 +130,16 @@ function move5() {
 }
 
 function move6() {
-  let pace = Math.floor(Math.random()*10);
+  let pace = Math.floor(Math.random() * 10);
   if (position6 > window.innerWidth - 120) {
     clearInterval(interval6);
-    let lastPosition = finish()
-    finish6.insertAdjacentHTML('afterbegin', `<h1 class="final">Final ${lastPosition}</h1>`);
+    let lastPosition = finish();
+    finish6.innerText = `Final ${lastPosition}`;
     if (lastPosition === 1) {
-      account += Number(bet6.value) * 6;
-      yourAccount.innerText = `Your Account: $${account}`;
+      account += Number(bet6.value) * 5;
+      yourAccount.innerText = `Balance: $${account}`;
+    } else if (lastPosition === 6) {
+      endPopu();
     }
   }
   position6 += pace;
@@ -142,8 +158,9 @@ let seconds = 6;
 function rebour() {
   seconds -= 1;
   clock.innerText = seconds;
-  if(seconds < 0) {
+  if(seconds === 0) {
     clearInterval(rebourInterval);
+    seconds = 6;
     clock.style.display = 'none';
   }
 }
@@ -174,7 +191,66 @@ function run() {
   interval6 = setInterval(move6, 50);
 }
 
+function goKey(event) {
+  if (event.keyCode === 13) {
+    go();
+  }
+}
+
+function endPopu() {
+  popup.style.display = 'block';
+  const popupTitle = document.querySelector('#popup h2');
+  const popupSubTitle = document.querySelector('#popup h3');
+  popupTitle.innerText = 'Bet Again!';
+  popupSubTitle.innerText = `Your balance is now $${account}!`
+  buttonGo.innerText = 'NEW RACE!';
+  if (account <= 0) {
+    popupTitle.innerText = 'OOOOOPPSSS!';
+    popupSubTitle.innerText = `Your balance is now $${account}! Your problem...`
+    buttonGo.style.display = 'none';
+    betList.innerHTML = `<img id="capy" src="images/capy.jpg" alt="angry-capy"/>
+                         <h2 class="btn-style" id="btn-reload" onClick="reload()">YOU BETTER RUN NOW!</h2>`;
+  }
+}
+
+function initialize(event) {
+  if (event.type === 'click' || event.keyCode === 13) {
+    position = 0;
+    position2 = 0;
+    position3 = 0;
+    position4 = 0;
+    position5 = 0;
+    position6 = 0;
+    horse1.style.left = `${position5}px`;
+    horse2.style.left = `${position5}px`;
+    horse3.style.left = `${position5}px`;
+    horse4.style.left = `${position5}px`;
+    horse5.style.left = `${position5}px`;
+    horse6.style.left = `${position5}px`;
+    finish1.innerText = '';
+    finish2.innerText = '';
+    finish3.innerText = '';
+    finish4.innerText = '';
+    finish5.innerText = '';
+    finish6.innerText = '';
+    finishRanking = 0;
+    clock.style.display = 'block';
+  }
+}
+
+function reload() {
+  if (event.type === 'click' || event.keyCode === 13) {
+    window.location.reload();
+  }
+}
+
+buttonGo.addEventListener('click', initialize);
+document.addEventListener('keydown', initialize);
 buttonGo.addEventListener('click', go);
+document.addEventListener('keydown', goKey);
+
+
+
 
 
 

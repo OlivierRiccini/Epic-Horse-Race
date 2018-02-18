@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Race Game</title>
+  <title>Epic Horse Race</title>
+  <link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 
-<h1 id="account">Your Account: $1000</h1>
+<h1 id="account">Balance: $1000</h1>
 <div id="track">
-  <div class="dada" id="dada1"><img src="horse-riding-2.svg" id="1"></div>
-  <div class="dada" id="dada2"><img src="horse-riding-3.svg" id="2"></div>
-  <div class="dada" id="dada3"><img src="horse-riding-4.svg" id="3"></div>
-  <div class="dada" id="dada4"><img src="horse-riding-5.svg" id="4"></div>
-  <div class="dada" id="dada5"><img src="horse-riding-6.svg" id="5"></div>
-  <div class="dada" id="dada6"><img src="horse-riding.svg" id="6"></div>
+  <div class="dada" id="dada1"><img src="images/horse-riding-2.svg" id="1"><h1 class="final" id="dada1Final"></h1></div>
+  <div class="dada" id="dada2"><img src="images/horse-riding-3.svg" id="2"><h1 class="final" id="dada2Final"></h1></div>
+  <div class="dada" id="dada3"><img src="images/horse-riding-4.svg" id="3"><h1 class="final" id="dada3Final"></h1></div>
+  <div class="dada" id="dada4"><img src="images/horse-riding-5.svg" id="4"><h1 class="final" id="dada4Final"></h1></div>
+  <div class="dada" id="dada5"><img src="images/horse-riding-6.svg" id="5"><h1 class="final" id="dada5Final"></h1></div>
+  <div class="dada" id="dada6"><img src="images/horse-riding.svg" id="6"><h1 class="final" id="dada6Final"></h1></div>
 </div>
+<span id="finishLine"></span>
 <h1 id="clock"></h1>
   <div id="popup">
     <h2>Bet!</h2>
     <h3>You can bet on different horses</h3>
-    <ul>
+    <ul id="betList">
       <li>
-        <img src="horse-riding-2.svg" class="dada-li">
+        <img src="images/horse-riding-2.svg" class="dada-li">
         <p>$</p><input id="bet1" type="number" name="bet">
       </li>
       <li>
-        <img src="horse-riding-3.svg" class="dada-li">
+        <img src="images/horse-riding-3.svg" class="dada-li">
         <p>$</p><input id="bet2" type="number" name="bet"></li>
       </li>
       <li>
-        <img src="horse-riding-4.svg" class="dada-li">
+        <img src="images/horse-riding-4.svg" class="dada-li">
         <p>$</p><input id="bet3" type="number" name="bet">
       </li>
       <li>
-        <img src="horse-riding-5.svg" class="dada-li">
+        <img src="images/horse-riding-5.svg" class="dada-li">
         <p>$</p><input id="bet4" type="number" name="bet">
       </li>
       <li>
-        <img src="horse-riding-6.svg" class="dada-li">
+        <img src="images/horse-riding-6.svg" class="dada-li">
         <p>$</p><input id="bet5" type="number" name="bet">
       </li>
       <li>
-        <img src="horse-riding.svg" class="dada-li">
+        <img src="images/horse-riding.svg" class="dada-li">
         <p>$</p><input id="bet6" type="number" name="bet">
       </li>
     </ul>
-    <h2 id="btn">GO!</h2>
+    <h2 class="btn-style" id="btn">GO!</h2>
   </div>
 
 <script src="main.js"></script>
