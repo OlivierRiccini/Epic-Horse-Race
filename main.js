@@ -28,6 +28,12 @@ const yourAccount = document.getElementById('account');
 const finalPositions = document.querySelectorAll('.final');
 const betList = document.getElementById('betList');
 
+const beep = new Audio('sounds/beep.mp3');
+const horse = new Audio('sounds/horse.mp3');
+const gameOver = new Audio('sounds/gameOver.mp3');
+const epic = new Audio('sounds/epic.mp3');
+epic.volume = 0.2;
+
 let position = 0;
 let position2 = 0;
 let position3 = 0;
@@ -46,7 +52,7 @@ function finish() {
 
 function move() {
   let pace = Math.floor(Math.random() * 10);
-  if (position > window.innerWidth - 120) {
+  if (position >= window.innerWidth - horse1.width - (window.innerWidth*5/100)) {
     clearInterval(interval);
     let lastPosition = finish();
     finish1.innerText = `Final ${lastPosition}`;
@@ -63,7 +69,7 @@ function move() {
 
 function move2() {
   let pace = Math.floor(Math.random() * 10);
-  if (position2 > window.innerWidth - 120) {
+  if (position2 >= window.innerWidth - horse1.width - (window.innerWidth*5/100)) {
     clearInterval(interval2);
     let lastPosition = finish();
     finish2.innerText = `Final ${lastPosition}`;
@@ -80,7 +86,7 @@ function move2() {
 
 function move3() {
   let pace = Math.floor(Math.random() * 10);
-  if (position3 > window.innerWidth - 120) {
+  if (position3 >= window.innerWidth - horse1.width - (window.innerWidth*5/100)) {
     clearInterval(interval3);
     let lastPosition = finish();
     finish3.innerText = `Final ${lastPosition}`;
@@ -97,7 +103,7 @@ function move3() {
 
 function move4() {
   let pace = Math.floor(Math.random() * 10);
-  if (position4 > window.innerWidth - 120) {
+  if (position4 >= window.innerWidth - horse1.width - (window.innerWidth*5/100)) {
     clearInterval(interval4);
     let lastPosition = finish();
     finish4.innerText = `Final ${lastPosition}`;
@@ -114,7 +120,7 @@ function move4() {
 
 function move5() {
   let pace = Math.floor(Math.random() * 10);
-  if (position5 > window.innerWidth - 120) {
+  if (position5 >= window.innerWidth - horse1.width - (window.innerWidth*5/100)) {
     clearInterval(interval5);
     let lastPosition = finish();
     finish5.innerText = `Final ${lastPosition}`;
@@ -131,7 +137,7 @@ function move5() {
 
 function move6() {
   let pace = Math.floor(Math.random() * 10);
-  if (position6 > window.innerWidth - 120) {
+  if (position6 >= window.innerWidth - horse1.width - (window.innerWidth*5/100)) {
     clearInterval(interval6);
     let lastPosition = finish();
     finish6.innerText = `Final ${lastPosition}`;
@@ -155,7 +161,9 @@ let interval6 = null;
 let rebourInterval = null;
 
 let seconds = 6;
+
 function rebour() {
+  beep.play();
   seconds -= 1;
   clock.innerText = seconds;
   if(seconds === 0) {
@@ -172,17 +180,20 @@ function go() {
   account -= Number(bet4.value);
   account -= Number(bet5.value);
   account -= Number(bet6.value);
-  yourAccount.innerText = `Your Account: $${account}`;
+  yourAccount.innerText = `Balance: $${account}`;
   popup.style.display = 'none';
   startingBlocks();
   rebourInterval = setInterval(rebour, 1000);
+  epic.play();
 }
 
 function startingBlocks() {
   setTimeout(run, 6000);
 }
 
+
 function run() {
+  horse.play();
   interval = setInterval(move, 50);
   interval2 = setInterval(move2, 50);
   interval3 = setInterval(move3, 50);
@@ -205,6 +216,7 @@ function endPopu() {
   popupSubTitle.innerText = `Your balance is now $${account}!`
   buttonGo.innerText = 'NEW RACE!';
   if (account <= 0) {
+    gameOver.play();
     popupTitle.innerText = 'OOOOOPPSSS!';
     popupSubTitle.innerText = `Your balance is now $${account}! Your problem...`
     buttonGo.style.display = 'none';
